@@ -154,8 +154,8 @@
         }
     }
     
-    // 回调文本改变的Block.
-    !_textFieldLengthDidMax ?: _textFieldLengthDidMax(self);
+    // 回调文本改变的Block
+    !_textFieldDidChange ?: _textFieldDidChange(self);
 }
 
 

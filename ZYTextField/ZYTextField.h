@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) void(^textFieldDidBeginEditing)(ZYTextField *textField);///< 文本开始编辑Block
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldEndEditing)(ZYTextField *textField);///< 是否可以停止编辑Block
 @property (nonatomic, strong, nullable) void(^textFieldDidEndEditing)(ZYTextField *textField); ///< 文本结束编辑Block
+@property (nonatomic, strong, nullable) void(^textFieldDidChange)(ZYTextField *textField); ///< 文本已经改变Block
 @property (nonatomic, strong, nullable) BOOL(^shouldChangeCharactersInRange)(ZYTextField *textField, NSRange range, NSString *replacementString);///< 文本改变Block
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldClear)(ZYTextField *textField);///< 是否可以Cear Block
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldReturn)(ZYTextField *textField);///< 是否可以点击Return Block
