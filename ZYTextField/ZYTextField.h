@@ -11,12 +11,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface ZYTextField : UITextField
+@property (nonatomic, strong, nullable) void(^textFieldBecomeFirstResponder)(ZYTextField *textField);///< 成为响应者
+@property (nonatomic, strong, nullable) void(^textFieldResignFirstResponder)(ZYTextField *textField);///<  取消响应
+
+@property (nonatomic, strong, nullable) void(^textFieldNotfiDidBeginEditing)(ZYTextField *textField);///< notification文本开始编辑Block
+@property (nonatomic, strong, nullable) void(^textFieldNotfiDidEndEditing)(ZYTextField *textField);///< notification文本结束编辑Block
+@property (nonatomic, strong, nullable) void(^textFieldNotfiDidChange)(ZYTextField *textField); ///< notification文本已经改变Block
 
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldBeginEditing)(ZYTextField *textField);///< 是否可以开始编辑Block
 @property (nonatomic, strong, nullable) void(^textFieldDidBeginEditing)(ZYTextField *textField);///< 文本开始编辑Block
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldEndEditing)(ZYTextField *textField);///< 是否可以停止编辑Block
 @property (nonatomic, strong, nullable) void(^textFieldDidEndEditing)(ZYTextField *textField); ///< 文本结束编辑Block
-@property (nonatomic, strong, nullable) void(^textFieldDidChange)(ZYTextField *textField); ///< 文本已经改变Block
 @property (nonatomic, strong, nullable) BOOL(^shouldChangeCharactersInRange)(ZYTextField *textField, NSRange range, NSString *replacementString);///< 文本改变Block
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldClear)(ZYTextField *textField);///< 是否可以Cear Block
 @property (nonatomic, strong, nullable) BOOL(^textFieldShouldReturn)(ZYTextField *textField);///< 是否可以点击Return Block
