@@ -78,9 +78,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isFloat;
 
 /**
-  是否设置小数点位数，isFloat为YES时，才生效, 默认为2
+  是否设置小数点位数，isFloat为YES时，才生效, 默认为2,
+  如果要int型，设置isFloat = YES，decimalPoint = 0
  */
 @property (nonatomic, assign) NSInteger decimalPoint;
+
+/**
+  设置最大值
+ */
+@property (nonatomic, strong) NSDecimalNumber *maxNumber;
+
+/**
+  设置最小值
+ */
+@property (nonatomic, strong) NSDecimalNumber *minNumber;
+
+/**
+ 允许改变字符串的正则
+ */
+@property (nonatomic, strong) NSString *shouldChangePredicateFormat;
 
 /**
  该属性返回一个经过处理的 `self.text` 的值, 去除了首位的空格和换行.

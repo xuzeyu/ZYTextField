@@ -24,7 +24,8 @@
     textField.backgroundColor = [UIColor yellowColor];
     textField.isFloat = YES;
     textField.decimalPoint = 2;
-    
+    textField.maxNumber = [NSDecimalNumber decimalNumberWithString:@"15.5"];
+    textField.minNumber = [NSDecimalNumber decimalNumberWithString:@"2"];
     NSLog(@"----%d", [self isPureFloat:@"10.11"]);
 }
 

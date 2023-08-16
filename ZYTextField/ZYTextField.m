@@ -8,6 +8,7 @@
 #import "ZYTextField.h"
 
 @interface ZYTextField () <UITextFieldDelegate>
+
 @end
 
 @implementation ZYTextField
@@ -177,6 +178,17 @@
         }
     }
     
+    if (self.text.length > 0) {
+        // NSOrderedAscending = -1L, NSOrderedSame,  NSOrderedDescending
+        if (self.maxNumber && [self.maxNumber compare:[NSDecimalNumber decimalNumberWithString:self.text]] == NSOrderedAscending) {
+            self.text = self.maxNumber.stringValue;
+        }
+        
+        if (self.minNumber && [self.minNumber compare:[NSDecimalNumber decimalNumberWithString:self.text]] == NSOrderedDescending) {
+            self.text = self.minNumber.stringValue;
+        }
+    }
+    
     // 回调文本改变的Block
     !_textFieldNotfiDidChange ?: _textFieldNotfiDidChange(weakSelf);
 }
@@ -266,6 +278,13 @@
             }
         }
     }
+    
+    if (self.shouldChangePredicateFormat.length > 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF matches %@", self.shouldChangePredicateFormat];
+        BOOL pResult = [predicate evaluateWithObject:text];
+        if (!pResult) return NO;
+    }
+    
     if (self.shouldChangeCharactersInRange) {
         return self.shouldChangeCharactersInRange(textField, range, string);
     }
