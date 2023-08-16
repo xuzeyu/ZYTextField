@@ -86,17 +86,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
   设置最大值
  */
-@property (nonatomic, strong) NSDecimalNumber *maxNumber;
+@property (nonatomic, strong, nullable) NSDecimalNumber *maxNumber;
 
 /**
   设置最小值
  */
-@property (nonatomic, strong) NSDecimalNumber *minNumber;
+@property (nonatomic, strong, nullable) NSDecimalNumber *minNumber;
 
 /**
  允许改变字符串的正则
  */
-@property (nonatomic, strong) NSString *shouldChangePredicateFormat;
+@property (nonatomic, strong, nullable) NSString *shouldChangePredicateFormat;
 
 /**
  该属性返回一个经过处理的 `self.text` 的值, 去除了首位的空格和换行.
