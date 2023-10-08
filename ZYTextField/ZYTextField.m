@@ -262,10 +262,22 @@
                 }
             }
             
-            if([textField.text hasPrefix:@"0"]) {
-                if(![string isEqualToString:@"."] && range.location == 1 && ![string isEqualToString:@""]) {
-                    return NO;
+//            if([textField.text hasPrefix:@"0"]) {
+//                if(![string isEqualToString:@"."] && range.location == 1 && ![string isEqualToString:@""]) {
+//                    return NO;
+//                }
+//            }
+                        
+            if (textField.text.length > 0 && [string isEqualToString:@"0"] && range.location == 0) {
+                return NO;
+            }
+            
+            if([textField.text hasPrefix:@"0"] && ![string isEqualToString:@"."] && ![string isEqualToString:@""]) {
+                NSString *tmpText = textField.text;
+                while ([tmpText hasPrefix:@"0"] && ![tmpText hasPrefix:@"0."] && tmpText.length > 0) {
+                    tmpText = [tmpText substringFromIndex:1];
                 }
+                textField.text = tmpText;
             }
             
             NSRange dianRange = [text rangeOfString:@"."];
