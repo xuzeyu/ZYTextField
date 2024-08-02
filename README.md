@@ -5,5 +5,5 @@ ZYTextField
 
 ## 如何导入
 ```
-pod 'ZYSocketResponse', :git => 'https://github.com/xuzeyu/ZYTextField.git'
+pod 'ZYTextField', :git => 'https://github.com/xuzeyu/ZYTextField.git'
 ```

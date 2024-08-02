@@ -62,8 +62,7 @@
     BOOL resign = [super resignFirstResponder];
 
     // 注销第一响应者时移除文本变化的通知, 以免影响其它的`UITextView`对象.
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
-
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     if (self.textFieldResignFirstResponder) {
         __weak __typeof(self)weakSelf = self;
         self.textFieldResignFirstResponder(weakSelf);
